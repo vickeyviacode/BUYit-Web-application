@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation - BuyIt</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .order-card {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+            width: 100%;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease-out forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .order-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+        }
+
+        .top-section {
+            text-align: center;
+            padding: 40px 30px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            background: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.3);
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 15px;
+        }
+
+        .tracking-id {
+            font-size: 18px;
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 16px;
+            border-radius: 25px;
+            display: inline-block;
+        }
+
+        .partner-section {
+            padding: 30px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .partner-header {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .partner-content {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .partner-left {
+            flex: 1;
+        }
+
+        .partner-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .partner-name {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .partner-role {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .partner-right {
+            flex: 1;
+        }
+
+        .detail-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .detail-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            opacity: 0.7;
+        }
+
+        .detail-text {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .phone-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .phone-link:hover {
+            text-decoration: underline;
+        }
+
+        .bottom-section {
+            padding: 20px 30px;
+            text-align: center;
+            background: #f8f9fa;
+        }
+
+        .pickup-location {
+            font-size: 14px;
+            color: #666;
+            font-weight: 500;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .order-card {
+                margin: 10px;
+            }
+
+            .top-section {
+                padding: 30px 20px 20px;
+            }
+
+            .title {
+                font-size: 24px;
+            }
+
+            .partner-section {
+                padding: 20px;
+            }
+
+            .partner-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="order-card">
+        <!-- Top Section -->
+        <div class="top-section">
+            <div class="checkmark">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20,6 9,17 4,12"></polyline>
+                </svg>
+            </div>
+            <h1 class="title">Order Confirmed!</h1>
+            <p class="subtitle">Your order has been successfully placed.</p>
+            <div class="tracking-id" id="trackingId">#BI-K47V01</div>
+        </div>
+
+        <!-- Delivery Partner Section -->
+        <div class="partner-section">
+            <h2 class="partner-header">Delivery Partner</h2>
+            <div class="partner-content">
+                <div class="partner-left">
+                    <div class="partner-image">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </div>
+                    <div class="partner-name">Rajesh K.</div>
+                    <div class="partner-role">Delivery Partner</div>
+                </div>
+                <div class="partner-right">
+                    <div class="detail-item">
+                        <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="5.5" cy="17.5" r="2.5"></circle>
+                            <circle cx="17.5" cy="17.5" r="2.5"></circle>
+                            <path d="M5 17.5h2l4-8h6l4 8h2"></path>
+                            <path d="M9 6.5V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5"></path>
+                        </svg>
+                        <span class="detail-text">Bajaj Pulsar</span>
+                    </div>
+                    <div class="detail-item">
+                        <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        <span class="detail-text">TN01AB1234</span>
+                    </div>
+                    <div class="detail-item">
+                        <svg class="detail-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        </svg>
+                        <a href="tel:+919876543210" class="phone-link detail-text">+91 9876543210</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="bottom-section">
+            <p class="pickup-location">Pickup: Thiru Vi Ka Estate, Chennai</p>
+        </div>
+    </div>
+
+    <script>
+        // Generate dynamic tracking ID
+        function generateTrackingId() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let result = '#BI-';
+            for (let i = 0; i < 5; i++) {
+                result += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return result;
+        }
+
+        // Set dynamic tracking ID on load
+        document.addEventListener('DOMContentLoaded', function() {
+            const trackingElement = document.getElementById('trackingId');
+            trackingElement.textContent = generateTrackingId();
+        });
+
+        // Add some interactive effects
+        document.querySelector('.order-card').addEventListener('click', function() {
+            this.style.transform = 'scale(0.98)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
+    </script>
+</body>
+</html>
